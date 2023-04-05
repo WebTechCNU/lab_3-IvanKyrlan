@@ -64,9 +64,18 @@ const images = [
 	}
 ];
 
+let cartImages = [];
+
 const imagesContainer = document.getElementById('images-container');
 const showImagesBtn = document.getElementById('show-images-btn');
 const bannerImg = document.getElementById('banner-image');
+
+let rangeInput = document.querySelector('#range');
+let sortedArray = images.sort(sortPrice);
+let maxPrice = Number(sortedArray[sortedArray.length - 1].price.split(' ')[0]) + 100;
+rangeInput.min = Number(sortedArray[0].price.split(' ')[0]);
+rangeInput.max = maxPrice;
+rangeInput.defaultValue = maxPrice;
 
 // Функція для додавання зображення та опису до контейнеру
 function addImageToContainer(image) {
@@ -116,7 +125,6 @@ function addImageToContainer(image) {
 	});
 
 	button.addEventListener('click', function () {
-		alert('Товар додано в кошик');
 		cart.classList.add('active');
 	});
 }
@@ -331,11 +339,12 @@ function addProductToCart(title, price, productImg) {
 	let cartItems = document.getElementsByClassName('cart-content')[0];
 	let cartItemsNames = cartItems.getElementsByClassName('cart-product-title');
 	for (var i = 0; i < cartItemsNames.length; i++) {
-		if (cartItemsNames[i].innerText == title) {
+		if (cartItemsNames[i].innerText.toLowerCase() == title.toLowerCase()) {
 			alert('Ви вже додали цей товар у кошик');
 			return;
 		}
 	}
+	
 	let cartBoxContent = `
 					<img src="${productImg}" alt="" class="cart-img">
 					<div class="detail-box">
@@ -347,6 +356,7 @@ function addProductToCart(title, price, productImg) {
 
 	cartShopBox.innerHTML = cartBoxContent;
 	cartItems.append(cartShopBox);
+	alert('Товар додано в кошик');
 	cartShopBox.getElementsByClassName('cart-remove')[0].addEventListener('click', removeCartItem);
 	cartShopBox.getElementsByClassName('cart-quantity')[0].addEventListener('change', quantityChanged);
 }
@@ -366,4 +376,54 @@ function updateTotal() {
 	total = Math.round(total * 100) / 100;
 
 	document.getElementsByClassName('total-price')[0].innerText = total + ' ₴';
+}
+
+
+// Sorting 
+function sort(attribute){
+	imagesContainer.innerHTML = '';
+	if(attribute == 'description'){
+		images.sort(sortDescription);
+	}
+	else if(attribute == 'price'){
+		images.sort(sortPrice);
+	}
+	images.forEach(function (image) {
+		addImageToContainer(image);
+	});
+}
+
+function sortDescription(a,b){
+	if(a.description < b.description){
+		return -1;
+	} 
+	else if(a.description > b.description){
+		return 1;
+	}
+	else{ 
+		return 0;
+	}
+}
+
+function sortPrice(a,b){
+	if(Number(a.price.split(' ')[0]) < Number(b.price.split(' ')[0])){
+		return -1;
+	} 
+	else if(Number(a.price.split(' ')[0]) > Number(b.price.split(' ')[0])){
+		return 1;
+	}
+	else{ 
+		return 0;
+	}
+}
+
+function changeRange(){
+	let price = rangeInput.value;
+	imagesContainer.innerHTML = '';
+	document.querySelector('#text-range').innerHTML = price + ' griyvnas';
+	images.forEach(elem => {
+		if(Number(elem.price.split(' ')[0]) < price){
+			addImageToContainer(elem);
+		}
+	});
 }
