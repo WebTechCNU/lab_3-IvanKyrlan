@@ -115,9 +115,10 @@ function addImageToContainer(image) {
 		description.classList.toggle('d-none');
 	});
 
-	// button.addEventListener('click', function () {
-	// 	alert('Товар успішно додано в кошик!');
-	// });
+	button.addEventListener('click', function () {
+		alert('Товар додано в кошик');
+		cart.classList.add('active');
+	});
 }
 
 const filterButtons = document.getElementById('filter-btn');
@@ -127,7 +128,7 @@ const goodsBtn = document.getElementById('goodsBtn');
 showImagesBtn.addEventListener('click', function () {
 	showImagesBtn.classList.add('d-none');
 	bannerImg.classList.add('d-none');
-	footer.classList.remove('position-absolute');
+	footer.classList.remove('d-none');
 
 	filterButtons.classList.remove('d-none');
 	images.forEach(function (image) {
@@ -138,7 +139,7 @@ showImagesBtn.addEventListener('click', function () {
 goodsBtn.addEventListener('click', function () {
 	showImagesBtn.classList.add('d-none');
 	bannerImg.classList.add('d-none');
-	footer.classList.remove('position-absolute');
+	footer.classList.remove('d-none');
 
 	filterButtons.classList.remove('d-none');
 	images.forEach(function (image) {
@@ -281,7 +282,19 @@ function ready() {
 		var button = addCart[i];
 		button.addEventListener('click', addCartClicked);
 	}
+	// Кнопка Купити
+	document.getElementsByClassName('btn-buy')[0].addEventListener('click', buyButtonClicked);
 }
+//Кнопка Купити
+function buyButtonClicked() {
+	alert('Ваше замовлення успішно оформлено');
+	let cartContent = document.getElementsByClassName('cart-content')[0]
+	while (cartContent.hasChildNodes()) {
+		cartContent.removeChild(cartContent.firstChild);
+	}
+	updateTotal();
+}
+
 //Видалення товару з кошика
 function removeCartItem(event) {
 	var buttonClicked = event.target;
@@ -305,12 +318,38 @@ function addCartClicked(event) {
 	var title = shopProducts.getElementsByClassName('product-title')[0].innerText;
 	var price = shopProducts.getElementsByClassName('price')[0].innerText;
 	var productImg = shopProducts.getElementsByClassName('product-image')[0].src;
-	console.log(title, price, productImg);
-	let cart = document.querySelector("#cart");
-	let newElem = "<div>Item : " + title + "; price: " + price + "; </div>";
-	cart.innerHTML += newElem;
+	addProductToCart(title, price, productImg);
+	updateTotal();
+	// let cart = document.querySelector("#cart");
+	// let newElem = "<div>Item : " + title + "; price: " + price + "; </div>";
+	// cart.innerHTML += newElem;
 }
 
+function addProductToCart(title, price, productImg) {
+	let cartShopBox = document.createElement('div');
+	cartShopBox.classList.add('cart-box');
+	let cartItems = document.getElementsByClassName('cart-content')[0];
+	let cartItemsNames = cartItems.getElementsByClassName('cart-product-title');
+	for (var i = 0; i < cartItemsNames.length; i++) {
+		if (cartItemsNames[i].innerText == title) {
+			alert('Ви вже додали цей товар у кошик');
+			return;
+		}
+	}
+	let cartBoxContent = `
+					<img src="${productImg}" alt="" class="cart-img">
+					<div class="detail-box">
+						<div class="cart-product-title">${title}</div>
+						<div class="cart-price">${price}</div>
+						<input type="number" value="1" class="cart-quantity">
+					</div>
+					<i class="bi bi-trash-fill cart-remove"></i>`;
+
+	cartShopBox.innerHTML = cartBoxContent;
+	cartItems.append(cartShopBox);
+	cartShopBox.getElementsByClassName('cart-remove')[0].addEventListener('click', removeCartItem);
+	cartShopBox.getElementsByClassName('cart-quantity')[0].addEventListener('change', quantityChanged);
+}
 //Сума
 function updateTotal() {
 	var cartContent = document.getElementsByClassName('cart-content')[0]
@@ -322,9 +361,9 @@ function updateTotal() {
 		var quantityElement = cartBox.getElementsByClassName('cart-quantity')[0]
 		var price = parseFloat(priceElement.innerText.replace('₴', ''));
 		var quantity = quantityElement.value;
-		total = total + (price * quantity);
-		total = Math.round(total * 100) / 100;
-
-		document.getElementsByClassName('total-price')[0].innerText = total + ' ₴';
+		total = total + price * quantity;
 	}
+	total = Math.round(total * 100) / 100;
+
+	document.getElementsByClassName('total-price')[0].innerText = total + ' ₴';
 }
