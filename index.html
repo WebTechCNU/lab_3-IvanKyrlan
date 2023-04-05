@@ -87,6 +87,17 @@
 						<button class="btn btn-outline-secondary">
 							<li data-f="female">Жіноче</li>
 						</button>
+
+						<button class="btn btn-outline-secondary" 
+								onclick="sort('description')">Sort by name</button>
+
+						<button class="btn btn-outline-secondary" 
+								onclick="sort('price')">Sort by price</button>
+
+						<input type="range" id="range" onchange="changeRange()">
+						<p id="text-range"></p>
+
+
 					</ul>
 				</div>
 
