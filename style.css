@@ -1,3 +1,8 @@
+body {
+	font-family: 'Ubuntu', sans-serif;
+	letter-spacing: 1.2px;
+}
+
 .cart {
 	position: fixed;
 	top: 0;
@@ -8,6 +13,7 @@
 	background: white;
 	box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);
 	transition: 0.3s;
+	z-index: 10;
 }
 
 .cart.active {
@@ -92,6 +98,7 @@
 	font-weight: 500;
 	cursor: pointer;
 	border-radius: 5px;
+	letter-spacing: 1.2px;
 }
 
 .btn-buy:hover {
@@ -105,3 +112,23 @@
 	font-size: 20px;
 	cursor: pointer;
 }
+
+#banner-image {
+	display: block;
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 100%;
+	max-height: 100%;
+	margin: 0 auto;
+}
+
+/* #filter-btn {
+	 border-bottom: 2px solid; 
+	background-color: #f9f9f9;
+	border-radius: 10px;
+	width: 50%;
+} */
+
+/* #news-item {
+	white-space: pre-wrap;
+} */
