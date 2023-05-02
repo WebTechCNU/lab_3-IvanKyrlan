@@ -98,7 +98,6 @@ body {
 	font-weight: 500;
 	cursor: pointer;
 	border-radius: 5px;
-	letter-spacing: 1.2px;
 }
 
 .btn-buy:hover {
@@ -122,13 +121,6 @@ body {
 	margin: 0 auto;
 }
 
-/* #filter-btn {
-	 border-bottom: 2px solid; 
-	background-color: #f9f9f9;
-	border-radius: 10px;
-	width: 50%;
-} */
-
-/* #news-item {
-	white-space: pre-wrap;
-} */
+.btn {
+	letter-spacing: 1.2px;
+}
