@@ -4,7 +4,9 @@ const images = [
 		alt: 'Товар 1',
 		description: 'Кофта чоловіча',
 		price: '390 грн',
-		classname: 'male'
+		classname: 'male',
+		category: 1,
+		quantity: 310
 	},
 
 	{
@@ -12,7 +14,9 @@ const images = [
 		alt: 'Товар 2',
 		description: 'Куртка жіноча',
 		price: '490 грн',
-		classname: 'female'
+		classname: 'female',
+		category: 2,
+		quantity: 159
 	},
 
 	{
@@ -20,7 +24,9 @@ const images = [
 		alt: 'Товар 3',
 		description: 'Куртка чоловіча',
 		price: '790 грн',
-		classname: 'male'
+		classname: 'male',
+		category: 2,
+		quantity: 28
 	},
 
 	{
@@ -28,7 +34,9 @@ const images = [
 		alt: 'Товар 4',
 		description: 'Штани чоловічі',
 		price: '690 грн',
-		classname: 'male'
+		classname: 'male',
+		category: 1,
+		quantity: 114
 	},
 
 	{
@@ -36,7 +44,9 @@ const images = [
 		alt: 'Товар 5',
 		description: 'Джинси жіночі',
 		price: '350 грн',
-		classname: 'female'
+		classname: 'female',
+		category: 1,
+		quantity: 80
 	},
 
 	{
@@ -44,7 +54,9 @@ const images = [
 		alt: 'Товар 6',
 		description: 'Кеди чоловічі',
 		price: '990 грн',
-		classname: 'male'
+		classname: 'male',
+		category: 2,
+		quantity: 97
 	},
 
 	{
@@ -52,7 +64,9 @@ const images = [
 		alt: 'Товар 7',
 		description: 'Джинсовка жіноча',
 		price: '550 грн',
-		classname: 'female'
+		classname: 'female',
+		category: 1,
+		quantity: 13
 	},
 
 	{
@@ -60,11 +74,11 @@ const images = [
 		alt: 'Товар 8',
 		description: 'Кросівки жіночі',
 		price: '1990 грн',
-		classname: 'female'
+		classname: 'female',
+		category: 2,
+		quantity: 300
 	}
 ];
-
-let cartImages = [];
 
 const imagesContainer = document.getElementById('images-container');
 const showImagesBtn = document.getElementById('show-images-btn');
@@ -363,7 +377,6 @@ function updateTotal() {
 	document.getElementsByClassName('total-price')[0].innerText = total + ' грн';
 }
 
-
 // Сортування товарів 
 function sort(attribute) {
 	imagesContainer.innerHTML = '';
@@ -445,7 +458,7 @@ let newsArr = [
 		id: 4,
 		title: "Нова колекція весна-літо 2023",
 		text: "Дізнайтеся про найяскравіші тенденції сезону, додайте до свого гардеробу нові луки, які підкреслять вашу унікальність.",
-		date: new Date(2023, 3, 12, 1, 10),
+		date: new Date(2023, 4, 12, 1, 10),
 		img: '../Photos/News-4.jpeg'
 	}
 ]
@@ -511,3 +524,89 @@ function changeNews() {
 }
 
 loadNews();
+
+// Графіки
+// Кругова діаграма
+const maleProducts = images.filter((item) => item.classname === 'male').length;
+const femaleProducts = images.filter((item) => item.classname === 'female').length;
+
+new Chart("pieChart", {
+	type: 'pie',
+	data: {
+		labels: ['Чоловічі товари', 'Жіночі товари'],
+		datasets: [{
+			data: [maleProducts, femaleProducts],
+			backgroundColor: [
+				'rgba(54, 162, 235, 0.6)',
+				'rgba(255, 99, 132, 0.6)'
+			]
+		}]
+	},
+	options: {
+		title: {
+			display: true,
+			text: 'Популярність товарів за типом'
+		}
+	}
+});
+
+// Гістограма
+const prices = images.map((item) => parseFloat(item.price));
+new Chart("barChart", {
+	type: 'bar',
+	data: {
+		labels: images.map((item) => item.description),
+		datasets: [{
+			label: 'Ціна, грн',
+			data: prices,
+			backgroundColor: 'rgba(54, 162, 235, 0.6)'
+		}]
+	},
+	options: {
+		title: {
+			display: true,
+			text: 'Популярність товарів за ціною'
+		},
+	}
+});
+
+// Лінійний графік
+const maleProductsCount = [];
+const femaleProductsCount = [];
+images.forEach((item, index) => {
+	const maleCount = images.slice(0, index + 1).filter((item) => item.classname === 'male').length;
+	const femaleCount = images.slice(0, index + 1).filter((item) => item.classname === 'female').length;
+	maleProductsCount.push(maleCount);
+	femaleProductsCount.push(femaleCount);
+});
+
+new Chart("lineChart", {
+	type: 'line',
+	data: {
+		labels: images.map((item) => item.description),
+		datasets: [{
+			label: 'Чоловічі товари',
+			data: maleProductsCount,
+			borderColor: 'rgba(255, 99, 132, 0.6)',
+			fill: false
+		}, {
+			label: 'Жіночі товари',
+			data: femaleProductsCount,
+			borderColor: 'rgba(54, 162, 235, 0.6)',
+			fill: false
+		}]
+	},
+	options: {
+		title: {
+			display: true,
+			text: 'Популярність товарів за типом'
+		},
+	}
+});
+
+function showGraph(chartId) {
+	document.getElementById('pieChart').classList.add('d-none');
+	document.getElementById('barChart').classList.add('d-none');
+	document.getElementById('lineChart').classList.add('d-none');
+	document.getElementById(chartId).classList.remove('d-none');
+}
