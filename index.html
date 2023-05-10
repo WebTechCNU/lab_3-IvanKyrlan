@@ -10,242 +10,244 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-	<!-- Верхній блок -->
-	<header>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
-			<div class="container">
-				<a class="navbar-brand" href="../index.html"><strong>IVAN's STORE</strong></a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+<!-- Верхній блок -->
+<header>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+		<div class="container">
+			<a class="navbar-brand" href="/index.html"><strong>IVAN's STORE</strong></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
 					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-				<div class="collapse navbar-collapse justify-content-center text-uppercase flex-grow-0" id="navbarNav">
-					<ul class="navbar-nav d-flex align-items-center">
-						<li class="nav-item">
-							<a class="nav-link" href="../index.html#news-container">Новини</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="../pages/about.html">Про нас</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#" id="goodsBtn">Товари</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="../pages/contact.html">Контакти</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#"><i class="bi bi-bag" style="font-size: 23px;"
-									id="cart-icon"></i></a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</header>
-
-	<!-- Головний блок -->
-	<main>
-		<!-- Кошик -->
-		<div class="cart" id="cart">
-			<h2 class="cart-title">Ваше замовлення</h2>
-			<div class="cart-content">
-
-			</div>
-			<div class="total">
-				<div class="total-title">Cума</div>
-				<div class="total-price">0 ₴</div>
-			</div>
-			<button type="button" class="btn-buy">Купити</button>
-			<i class="bi bi-x-lg" id="close-cart"></i>
-		</div>
-
-		<!-- Банер головної сторінки -->
-		<div class="text-center">
-			<img src="../Photos/Banner.jpg" alt="Can't load the photo" id="banner-image">
-		</div>
-
-		<!-- Новини -->
-		<div class="container my-5" id="news-container">
-			<h3 class="text-center m-5">Новини</h3>
-			<div class="row">
-				<div class="col-md-8">
-					<div class="" id="news-item">
-						<!-- Тут розгортається новина -->
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="list-group" id="news-list">
-						<!-- Тут зʼявляються новини на бічній панелі -->
-					</div>
-				</div>
+			<div class="collapse navbar-collapse justify-content-center text-uppercase flex-grow-0" id="navbarNav">
+				<ul class="navbar-nav d-flex align-items-center">
+					<li class="nav-item">
+						<a class="nav-link" href="/index.html#news-container">Новини</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/pages/about.html">Про нас</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#" id="goodsBtn">Товари</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/pages/contact.html">Контакти</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#"><i class="bi bi-bag" style="font-size: 23px;"
+														id="cart-icon"></i></a>
+					</li>
+				</ul>
 			</div>
 		</div>
+	</nav>
+</header>
 
-		<!-- Кнопка уверх -->
-		<button class="btn btn-dark back-to-top position-fixed d-none" type="button" id="btnUp" style="bottom: 50px;
+<!-- Головний блок -->
+<main>
+	<!-- Кошик -->
+	<div class="cart" id="cart">
+		<h2 class="cart-title">Ваше замовлення</h2>
+		<div class="cart-content">
+
+		</div>
+		<div class="total">
+			<div class="total-title">Cума</div>
+			<div class="total-price">0 ₴</div>
+		</div>
+		<!-- <button type="button" class="btn-buy">Купити</button> -->
+		<div class="text-center m-3"><button type="button" class="btn btn-success">Купити</button></div>
+		<i class="bi bi-x-lg" id="close-cart"></i>
+	</div>
+
+	<!-- Банер головної сторінки -->
+	<div class="text-center">
+		<img src="/Photos/Banner.jpg" alt="Can't load the photo" id="banner-image">
+	</div>
+
+	<!-- Новини -->
+	<div class="container my-5" id="news-container">
+		<h3 class="text-center m-5">Новини</h3>
+		<div class="row">
+			<div class="col-md-8">
+				<div class="" id="news-item">
+					<!-- Тут розгортається новина -->
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="list-group" id="news-list">
+					<!-- Тут зʼявляються новини на бічній панелі -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Кнопка уверх -->
+	<button class="btn btn-dark back-to-top position-fixed d-none" type="button" id="btnUp" style="bottom: 50px;
       right: 20px;">
-			<i class="bi bi-arrow-up-circle"></i> Уверх
-		</button>
+		<i class="bi bi-arrow-up-circle"></i> Уверх
+	</button>
 
-		<!-- Секція з товарами -->
-		<section>
-			<div class="container" id="goods">
-				<div class="row m-3">
-					<div class="col text-center">
-						<button class="btn btn-dark text-uppercase m-3" id="show-images-btn">Показати
-							товари</button>
-					</div>
+	<!-- Секція з товарами -->
+	<section>
+		<div class="container" id="goods">
+			<div class="row m-3">
+				<div class="col text-center">
+					<button class="btn btn-dark m-3" id="show-images-btn">Показати
+						товари</button>
 				</div>
+			</div>
 
-				<!-- Кнопки для фільтрів -->
-				<div class="filter-btn text-center p-4 d-none" id="filter-btn">
-					<div class="btn-group" role="group">
-						<ul class="list-unstyled mt-4">
-							<input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"
-								checked>
-							<label class="btn btn-outline-secondary" for="btnradio1">
-								<li data-f="all">Всі</li>
-							</label>
+			<!-- Кнопки для фільтрів -->
+			<div class="filter-btn text-center p-4 d-none" id="filter-btn">
+				<div class="btn-group" role="group">
+					<ul class="list-unstyled mt-4">
+						<input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"
+							   checked>
+						<label class="btn btn-outline-secondary" for="btnradio1">
+							<li data-f="all">Всі</li>
+						</label>
 
-							<input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-							<label class="btn btn-outline-secondary" for="btnradio2">
-								<li data-f="male">Чоловіче</li>
-							</label>
+						<input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+						<label class="btn btn-outline-secondary" for="btnradio2">
+							<li data-f="male">Чоловіче</li>
+						</label>
 
-							<input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-							<label class="btn btn-outline-secondary" for="btnradio3">
-								<li data-f="female">Жіноче</li>
-							</label>
+						<input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+						<label class="btn btn-outline-secondary" for="btnradio3">
+							<li data-f="female">Жіноче</li>
+						</label>
 
-							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
 								data-bs-toggle="dropdown" aria-expanded="false">Сортування
-							</button>
-							<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-								<li><a class="dropdown-item" href="#" onclick="sort('description')">За назвою</a></li>
-								<li><a class=" dropdown-item" href="#" onclick="sort('price')">За ціною</a></li>
-							</ul>
+						</button>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+							<li><a class="dropdown-item" href="#" onclick="sort('description')">За назвою</a></li>
+							<li><a class=" dropdown-item" href="#" onclick="sort('price')">За ціною</a></li>
 						</ul>
-					</div>
-
-					<div class="price-range">
-						<p class="p-2 m-0">Ціновий діапазон</p>
-						<input class="m-2" type="range" id="range" onchange="changeRange()">
-						<p class="p-2 m-0">до <strong id="text-range"></strong></p>
-
-					</div>
-				</div>
-
-				<div class="row text-center h5 justify-content-center" id="images-container">
-					<!-- Тут додаються товари -->
-				</div>
-			</div>
-		</section>
-
-		<!-- Графіки -->
-		<section class="mb-5">
-			<h3 class="text-center p-5">Графіки</h3>
-			<div class="d-flex justify-content-center">
-				<div class="btn-group mb-5" role="group" aria-label="Graph selection">
-					<button type="button" class="btn btn-dark text-uppercase" onclick="showGraph('pieChart')">Кругова
-						діаграма</button>
-					<button type="button" class="btn btn-dark text-uppercase"
-						onclick="showGraph('barChart')">Гістограма</button>
-					<button type="button" class="btn btn-dark text-uppercase" onclick="showGraph('lineChart')">Лінійний
-						графік</button>
-				</div>
-			</div>
-
-			<section class="d-flex justify-content-center ">
-				<canvas class="m-5 d-none" id="pieChart" style="width:100%;max-width:700px"></canvas>
-				<canvas class="m-5 d-none" id="barChart" style="width:100%;max-width:700px"></canvas>
-				<canvas class="m-5 d-none" id="lineChart" style="width:100%;max-width:700px"></canvas>
-			</section>
-		</section>
-
-		<!-- Модальне вікно про підписку -->
-		<div class="modal" id="subscribeModal" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title">Підписатися на повідомлення</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-						<p class="text-center">Підпишіться на наші повідомлення, щоб отримувати новини та спеціальні
-							пропозиції!</p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Відхилити</button>
-						<button type="button" class="btn btn-primary" id="subscribeButton">Підписатися</button>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Модальне вікно з рекламою  -->
-		<div class="modal" id="advertismentModal" tabindex="-1">
-			<div class="modal-dialog modal-fullscreen">
-				<div class="modal-content">
-					<div class="modal-header justify-content-end">
-						<h5 class="modal-title">Рекламна пропозиція</h5>
-						<button type="button" class="btn-close" id="closeButton" data-bs-dismiss="modal"
-							aria-label="Close" disabled></button>
-					</div>
-					<div class="modal-body">
-						<p>Тут може бути ваша реклама...</p>
-					</div>
-					<div class="modal-footer justify-content-center">
-						<p class="m-3" id="timer-message">Ви зможете закрити вікно через...
-							<strong id="timer">15</strong>
-						</p>
-						<a href="../index.html"><button type="button" class="btn btn-primary" id="advButton">Перейти
-								на
-								сайт</button></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</main>
-
-	<!-- Нижній блок -->
-	<footer class="bg-dark text-light py-3 bottom-0 w-100" id="footer" style="z-index: -1;">
-		<div class="container-fluid">
-			<div class="row justify-content-center">
-				<div class="col-md-3 col-sm-6 mb-3 mb-md-0 align-self-center">
-					<a class="navbar-brand" href="#"><strong>IVAN's STORE</strong></a>
-					<p class="text-align-left">Місце, де ви можете знайти стильний і якісний одяг для будь-якої
-						нагоди
-					</p>
-				</div>
-				<div class="col-md-3 col-sm-6 mb-3 mb-md-0">
-					<h5>Контакти</h5>
-					<ul class="list-unstyled">
-						<li>Адреса: м. Чернівці, вул. Героїв Майдану, 123</li>
-						<li>Телефон: +380 123 456 789</li>
-						<li>Email: ivans-store@info.com</li>
 					</ul>
 				</div>
-				<div class="col-md-3 col-sm-12">
-					<h5>Підписатися на розсилку</h5>
-					<form class="form-inline">
-						<div class="form-group mr-2">
-							<input type="email" class="form-control" placeholder="Введіть email">
-						</div>
-						<button type="submit" class="btn btn-primary mt-2">Підписатися</button>
-					</form>
+
+				<div class="price-range">
+					<label for="range">Ціновий діапазон</label><br>
+					<input class="m-2" type="range" id="range" onchange="changeRange()">
+					<p class="p-2 m-0">до <strong id="text-range"></strong></p>
+
+				</div>
+			</div>
+
+			<div class="row text-center h5 justify-content-center" id="images-container">
+				<!-- Тут додаються товари -->
+			</div>
+		</div>
+	</section>
+
+	<!-- Графіки -->
+	<section class="mb-5 text-center">
+		<h3 class="text-center p-5">Графіки</h3>
+		<div class="d-flex justify-content-center">
+			<div class="btn-group mb-5" role="group" aria-label="Graph selection">
+				<button type="button" class="btn btn-dark" onclick="showGraph('pieChart')">Кругова
+					діаграма</button>
+				<button type="button" class="btn btn-dark" onclick="showGraph('barChart')">Гістограма</button>
+				<button type="button" class="btn btn-dark" onclick="showGraph('lineChart')">Лінійний
+					графік</button>
+			</div>
+		</div>
+
+		<section class="d-flex justify-content-center ">
+			<canvas class="m-5 d-none" id="pieChart" style="width:100%;max-width:700px"></canvas>
+			<canvas class="m-5 d-none" id="barChart" style="width:100%;max-width:700px"></canvas>
+			<canvas class="m-5 d-none" id="lineChart" style="width:100%;max-width:700px"></canvas>
+		</section>
+	</section>
+
+	<!-- Модальне вікно про підписку -->
+	<div class="modal" id="subscribeModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Підписатися на повідомлення</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p class="text-center">Підпишіться на наші повідомлення, щоб отримувати новини та спеціальні
+						пропозиції!</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Відхилити</button>
+					<button type="button" class="btn btn-primary" id="subscribeButton">Підписатися</button>
 				</div>
 			</div>
 		</div>
-	</footer>
+	</div>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="../main.js"></script>
+	<!-- Модальне вікно з рекламою  -->
+	<div class="modal" id="advertismentModal" tabindex="-1">
+		<div class="modal-dialog modal-fullscreen">
+			<div class="modal-content">
+				<div class="modal-header justify-content-end">
+					<h5 class="modal-title">Рекламна пропозиція</h5>
+					<button type="button" class="btn-close" id="closeButton" data-bs-dismiss="modal"
+							aria-label="Close" disabled></button>
+				</div>
+				<div class="modal-body">
+					<p>Тут може бути ваша реклама...</p>
+				</div>
+				<div class="modal-footer justify-content-center">
+					<p class="m-3" id="timer-message">Ви зможете закрити вікно через...
+						<strong id="timer">15</strong>
+					</p>
+					<a href="/index.html"><button type="button" class="btn btn-primary" id="advButton">Перейти
+						на
+						сайт</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+
+<!-- Нижній блок -->
+<footer class="bg-dark text-light py-3 bottom-0 w-100" id="footer" style="z-index: -1;">
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="col-md-3 col-sm-6 mb-3 mb-md-0 align-self-center">
+				<a class="navbar-brand" href="#"><strong>IVAN's STORE</strong></a>
+				<p class="text-align-left">Місце, де ви можете знайти стильний і якісний одяг для будь-якої
+					нагоди
+				</p>
+			</div>
+			<div class="col-md-3 col-sm-6 mb-3 mb-md-0">
+				<h5>Контакти</h5>
+				<ul class="list-unstyled">
+					<li>Адреса: м. Чернівці, вул. Героїв Майдану, 123</li>
+					<li>Телефон: +380 123 456 789</li>
+					<li>Email: ivans-store@info.com</li>
+				</ul>
+			</div>
+			<div class="col-md-3 col-sm-12">
+				<h5>Підписатися на розсилку</h5>
+				<form class="form-inline">
+					<div class="form-group mr-2">
+						<label>
+							<input type="email" class="form-control" placeholder="Введіть email">
+						</label>
+					</div>
+					<button type="submit" class="btn btn-primary mt-2">Підписатися</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/main.js"></script>
 </body>
 
 </html>
